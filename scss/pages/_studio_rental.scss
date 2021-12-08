@@ -1,0 +1,262 @@
+.rental {
+    padding-top: 75px;
+    margin-top: -1px;
+    .container {
+        padding: 0 35px;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        .rental__no {
+            background: $grey;
+            width: 260px;
+            height: 639px;            
+            margin-top: -75px;
+            margin-left: -20px;
+            padding-top: 75px; 
+            padding-left: 20px;
+            color: $white-00;
+            .studio__no.--rental {
+                margin-bottom: 26px;                
+            }
+            &__info {
+                .--h1.--white {
+                    color: $white-00;
+                    margin-bottom: 15px;
+                }
+                .--h2.--white {
+                    color: $white-00;
+                    margin-bottom: 5px;
+                }
+                .rental__details {
+                    .--rental {
+                        font-size: var(--h2-fz);
+                    }
+                }
+            }
+        }
+        .rental__input {
+            max-width: 600px;
+            .input__cpn {
+                margin-bottom: 25px;
+            }
+            .input__booking {
+                position: relative;
+                padding-bottom: 180px;
+                .booking__no {
+                    margin: 5px 0 22px;
+                    ul {
+                        display: flex;
+                        margin-top: 7px;
+                        gap: 20px;
+                        cursor: pointer;
+                        li {
+                            @include size(39px, 39px);
+                            @include text(2.4rem, dc, 10.2rem, $white-02);
+                            background-color: #111111;
+                            border: 1px solid $black-100;
+                            position: relative;
+                            @include transition($t);
+                            span {
+                                @include mid(false);
+                            }
+                            &:hover {
+                                opacity: 0.7;
+                            }
+                            &.active {
+                                background: $yellow;
+                                color: $black-100;
+                            }
+                        }
+                    }
+                }
+                .row.--gap {
+                    .row__item.--rental {
+                        p {
+                            line-height: normal;
+                            text-transform: none;
+                        }
+                    }
+                }
+                .--block {
+                    flex-direction: column;
+                    margin-top: 10px;
+                    margin-bottom: 46px;
+                    .--row {
+                        display: flex;
+                        align-items: end;
+                        justify-content: space-between;
+                        max-width: 100%;
+                        .arrow {
+                            transform: rotate(-90deg);
+                            margin: auto 0;
+                        }
+                    }
+                    .--full {
+                        max-width: 100%;  
+                        .--pd {
+                            margin-top: 9px;
+                        }
+                        &:nth-child(2) {
+                            margin-top: -24px;
+                        }
+                    }
+                }
+                .bk__date {
+                    margin-right: 15px;
+                    margin-bottom: 20px;
+                    &__input {
+                        margin-top: 10px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        input {
+                            width: 230px;
+                            height: 40px;
+                            border-bottom: none;
+                            border: 1px solid $black-100;
+                            background: transparent;
+                            padding: 0 10px;
+                        }
+                        .arrow {
+                            transform: rotate(-90deg);
+                        }
+                    }
+                }
+                .booking.--rental {
+                    flex-direction: row-reverse;
+                    p {
+                        max-width: 190px;
+                        @include text(var(--body12-fz), pnr, var(--body12-lh-odd1), $black-80, none);
+                    }
+                    .booking__btn {
+                        @include transition($t);
+                        &:hover {
+                            background: $yellow;
+                            color: $black-100;
+                        }
+                    }
+                }       
+            }
+        } 
+        &::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            background-color: $black-100;
+        }
+    }
+    @include sm {
+        .container {
+            padding: 0;
+            flex-direction: column;
+            align-items: center;
+            .rental__no {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 50px;
+                width: 100%;
+                height: fit-content;
+                padding-top: 0;
+                background-color: $white-00;
+                color: $black-100;
+                margin-bottom: 30px;
+                .studio__no.--rental {
+                    margin-bottom: 0;
+                }
+                &__info {
+                    .--h1.--white {
+                        color: $black-100;
+                        margin-bottom: 0;
+                    }
+                    .--h2.--white {
+                        color: $black-100;
+                        margin-bottom: 0px;
+                    }
+                }
+            }
+            .rental__input {
+                .input__booking {
+                    .bk__date, .row.--block {
+                        max-width: 540px;
+                    }
+                }
+            }
+        }
+    }
+    @include xs {
+        padding-top: 32px;
+        .container {
+            padding: 0 10px;
+            align-items: flex-start;
+            .rental__no {
+                margin: 0 0 35px;
+                padding: 0;
+                justify-content: flex-start;
+                gap: 25px;
+                .studio__no.--rental {
+                    @include size(104px,104px);
+                }
+            }
+            .rental__input {
+                width: 100%;
+                .input__cpn {
+                    .row.--gap {
+                        display: block;
+                        margin-right: 0;
+                        .row__item.--rental {
+                            max-width: 100%;
+                            div {
+                                margin-bottom: 17px;
+                                .text-input {
+                                    border: 1px solid $black-100;
+                                }
+                            }
+                        }
+                    }
+                }
+                .input__booking {
+                    padding-bottom: 150px;
+                    .booking__no {
+                        margin: 0 0 40px;
+                    }
+                    .row.--gap {
+                        display: block;
+                        margin-right: 0;
+                        .row__item.--rental {
+                            max-width: 100%;
+                            margin-bottom: 16px;
+                            p {
+                                display: none;
+                            }
+                        }
+                    }
+                    .bk__date {
+                        margin: -10px 0 29px 0;
+                        .bk__date__input {
+                            display: block;
+                            max-width: 100%;
+                            input {
+                                width: 100%;
+                            }
+                            img {
+                                display: block;
+                                margin: 15px auto;
+                                transform: rotate(0deg);
+                            }
+                        }
+                    }
+                    .row.--block {
+                        max-width: 100%;
+                        margin-right: 0;
+                        margin-bottom: 28px;
+                    }
+                }
+            }
+        }
+    }
+}

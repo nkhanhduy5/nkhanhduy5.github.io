@@ -1,0 +1,52 @@
+.catalog {
+    .container.--works {
+        position: relative;
+        padding-bottom: 65px;
+        .catalog__list {
+            margin-bottom: 20px;
+        }.catalog__group {
+            margin-bottom: 30px;
+        }
+        .booking {
+            right: 15px;
+            bottom: 17px;
+            p {
+                text-align: right;
+            }
+        }
+    }
+    @include xs {
+        .container.--works {
+            padding-bottom: 0;
+            .catalog__list {
+                display: flex;
+                margin: 37px 0;
+            }
+            .catalog__group {
+                .catalog__group__item:nth-child(n + 4) {
+                    display: block;
+                }
+                .catalog__group__item:nth-child(n + 5) {
+                    display: none;
+                }      
+            }
+            .show-more {
+                margin-top: 238px;
+            }
+            .booking {
+                display: block;
+                bottom: 105px;
+                left: 50%;
+                transform: translateX(-50%);
+                p {
+                    text-align: center;
+                    margin: 0 auto;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+}
+.contact {
+    margin-top: 0;
+}

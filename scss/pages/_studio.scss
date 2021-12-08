@@ -1,0 +1,168 @@
+.studio {
+    &.group {
+        padding: 73px 0 50px;
+        position: relative;
+        .container {
+            .studio__group {
+                display: flex;
+                flex-wrap: wrap;
+                --column: 2;
+                --gap-count: calc(var(--column) - 1);
+                --gap: 20px;
+                --spacing: calc((var(--gap) * var(--gap-count)) / var(--column));
+                gap: var(--gap);
+                --height: 418px;
+                --height-img: 300px;
+                &__item {
+                    width: calc((100% / var(--column)) - var(--spacing));
+                    height: var(--height);
+                    margin-bottom: 50px;
+                    cursor: pointer;
+                    .studio__img {
+                        width: 100%;
+                        height: var(--height-img);
+                        overflow: hidden;
+                        position: relative;
+                        img {
+                            min-width: 100%;
+                            min-height: 100%;
+                            object-fit: cover;
+                            @include mid(false);
+                            filter: grayscale(1);
+                            @include transition($t);
+                        }
+                        &:before {
+                            content: '';
+                            @include mid(false);
+                            background: $black-30;
+                            @include size(100%,100%);
+                            z-index: 100;
+                            opacity: 0.3;
+                            @include transition($t);
+                            pointer-events: none;
+                        }
+                    }
+                    .studio__info {
+                        @include mid;
+                        justify-content: flex-start;
+                        gap: 80px;
+                        background: $white-01;
+                        @include transition($t);
+                        &__left {
+                            display: flex;
+                            gap: 60px;
+                            .left__item {
+                                .--studio.hv {
+                                    color: inherit;
+                                    letter-spacing: normal;
+                                    margin-bottom: 2px;
+                                }
+                                a {
+                                    @include mid;
+                                    flex-direction: column;
+                                    span {
+                                        margin-bottom: 5px;
+                                    }
+                                }
+                                &:hover {
+                                    color: $white-00!important;
+                                }
+                            }
+                        }
+                    }
+                    &:hover {
+                        .studio__img {
+                            img {
+                                filter: grayscale(0);
+                                transform: scale(1.1) translate(-50%,-50%);
+                            }
+                        }
+                        .studio__info {
+                            background: $grey;
+                            color: $white-00;
+                        }
+                    }
+                    &:nth-child(n+3):hover {
+                        .studio__img {
+                            &::before {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 1px;
+            background: $black-100;
+        }
+        @include sm {
+            .container {
+                .studio__group {
+                    --column: 1;
+                    --height: auto;
+                    --height-img: 350px;
+                    &__item {
+                        .studio__info {
+                            &__left {
+                                margin: 0 auto;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        @include xs {
+            .container {
+                padding: 0 10px;
+                .studio__group {
+                    --height-img: 187px;
+                    &__item {
+                        margin-bottom: 20px;
+                        .studio__info {
+                            gap: 0;
+                            justify-content: space-between;
+                            background: none;
+                            .studio__no {
+                                @include size(75px,75px);
+                                .studio__no__title {
+                                    line-height: 1.25rem;
+                                    padding-top: 15px;
+                                    span {
+                                        font-size: 3.8rem;
+                                        line-height: 6.4rem;
+                                    }
+                                }
+                            }
+                            &__left {
+                                align-items: baseline;
+                                margin-left: auto;
+                                margin-right: 0;
+                                gap: 50px;
+                                .left__item {
+                                    a {
+                                        span {
+                                            display: none;
+                                        }
+                                        img {
+                                            transform: rotate(-90deg);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+}

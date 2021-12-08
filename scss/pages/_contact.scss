@@ -1,0 +1,95 @@
+.contact {
+    &.--img {
+        background: url('/img/contact.jpg') no-repeat center/cover;      
+        margin-top: -2px;
+        height: 460px;
+        .container {
+            padding: 95px 0;
+            .contact__logo {
+                @include mid;
+                margin-bottom: 28px;
+            }
+            .contact__reverse {
+                display: flex;
+                gap: 60px;
+                flex-direction: row-reverse;
+                justify-content: center;
+                margin-bottom: 30px;
+                .contact__left {
+                    position: relative;
+                    top: 0;
+                    color: $white-00;
+                    &:last-child {
+                        text-align: right;
+                    }
+                }
+            }
+            
+            .contact__right {
+                position:initial;
+                display: flex;
+                justify-content: space-between;
+                max-width: 100%;
+                gap: 120px;
+            }
+        }
+        @include sm {
+            height: 400px;
+            .container {
+                padding: 60px 0;
+                .contact__reverse {
+                    margin-bottom: 0;
+                }
+            }
+        }
+        @include xs {
+            height: 425px;
+            margin-bottom: 0;
+            .container {
+                .contact__logo, .show-more {
+                    display: none;
+                }
+                .contact__reverse {
+                    display: block;
+                    text-align: center;
+                    @include mid(false);
+                    .contact__left:last-child {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}
+.--page {
+    margin-top: 0;
+    padding: 39px 0 20px;
+    height: auto;
+    .container {
+        padding: 0 80px;
+        .contact__right {
+            position: initial;
+            display: flex;
+            justify-content: space-between;
+            max-width: 100%;
+            gap: 120px;
+            .contact__info {
+                max-width: 100%;
+            }
+            .contact__text {
+                max-width: 460px;
+            }
+        }
+    }
+    @include sm {
+        padding-bottom: 0;
+        .container {
+            .contact__right {
+                gap: 60px;
+            }
+        }
+    }
+    @include xs {
+        display: none;
+    }
+}

@@ -1,0 +1,85 @@
+/*BOXED LAYOUT*/
+$container-max-width: 1920px;
+$container-width: 1010px;
+
+/*GRID - media queries breakpoints*/
+$xxs-min: 576px; // adjustable
+$xs-min: 768px; // fixed
+$sm-min: 992px; // fixed
+$md-min: 1200px; // fixed
+$lg-min: 1600px; // adjustable
+
+$xxs-max: ($xxs-min - 1); // small mobile
+$xs-max: ($xs-min - 1); // mobile
+$sm-max: ($sm-min - 1); // tablet
+$md-max: ($md-min - 1); // desktop
+$lg-max: ($lg-min - 1); // large desktop
+
+/*Unchanged variables in responsive*/
+// colors - adjustable
+$yellow: #ffde00;
+$black-100: #000000;
+$black-80: #171717;
+$black-50: #231f20;
+$black-40: #39382f;
+$black-30: #2e2c2c;
+$white-00: #f4f4f4;
+$white-01: #e4e4e4;
+$white-02: #b4b4b4;
+$grey-100: #282828;
+$grey: #525355; 
+
+// timing transition - adjustable
+$t: 0.4s;
+$cubic: cubic-bezier(0.84, 0.13, 0.33, 0.97);
+
+/*Changed variables in responsive*/
+:root {
+    // font-size & line-height heading
+    --h1-fz: 2rem;
+    --h1-lh: 3.05rem;
+
+    --h2-fz: 1.4rem;
+    --h2-lh: 3.05rem;
+    --h2-lh-odd1: 2.2rem;
+
+    --h3-fz: 1.2rem;
+    --h3-lh: 3.05rem;
+
+    // --h4-fz: 1.8rem;
+    // --h4-lh: 2.4rem;
+
+    // --h5-fz: 1.6rem;
+    // --h5-lh: 2rem;
+
+    --body12-fz: 1.2rem;
+    --body12-lh: 3.05rem;
+    --body12-lh-odd1: 2.2rem;
+    --body12-lh-odd2: 2rem;
+    --body12-lh-odd3: 6.6rem;
+
+    --body11-fz: 1.1rem;
+    --body11-lh: 2.2rem;
+
+    --body10-fz: 1rem;
+    --body10-lh: 3.05rem;
+    --body10-lh-odd: 6.6rem;
+
+    // General Variable
+    --gap: 30px; // gap for container & container-fluid's column & padding
+
+    --height-header: 140px;
+    --height-header-top: 72px;
+    --height-button: 56px;
+    --pd-about: 51px 0 55px;
+
+    @media (max-width: $sm-max) {
+        // Tablet
+        --height-header: 60px;
+    }
+    @media (max-width: $xs-max) {
+        // Mobile
+        --pd-section: 50px;
+        --ptop: 120px;
+    }
+}

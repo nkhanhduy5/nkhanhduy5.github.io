@@ -1,0 +1,172 @@
+.header {
+    height: var(--height-header);
+    &__top{
+        background: $grey;
+        height: var(--height-header-top);
+        .container {
+            height: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            .menu__btn {
+                display: none;
+            }
+            .logo {
+                @include mid(false);
+                a {
+                    img {
+                        display: block;
+                    }
+                }
+                .hidden {
+                    display: none;
+                }
+            }
+            .sns {
+                @include mid;
+                margin-left: auto;
+                width: 9px;
+                height: 19px;
+            }
+        }
+    }
+    &__menu {
+        width: 100%;
+        height: 67px;
+        @include transition($t);
+        &.active {
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            background: $yellow;
+            .container {
+                &::after {
+                    display: none;
+                }
+            }
+        }
+        .container {
+            height: 100%;
+            @include mid;
+            justify-content: space-between;
+            @include text(var(--body12-fz), pnsb, var(--body12-lh), $black-80, uppercase);
+            padding-top: 22px;
+            position: relative;
+            .direct {
+                letter-spacing: 0.06rem;
+                @include transition($t);
+                &:hover {
+                    opacity: 0.5;
+                }
+            }
+            .menu {
+                @include mid;
+                li {
+                    padding: 0 30px;
+                    @include transition($t);
+                    a {
+                        width: 100%;
+                        height: 100%;
+                        position: relative;
+                        &::after {
+                            content: '';
+                            width: 0;
+                            height: 1px;
+                            position: absolute;
+                            bottom: -10px;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            background-color: $black-100;
+                            @include transition($t);
+                        }
+                        &:hover {
+                            opacity: 0.5;
+                            &::after {
+                                width: 100%;                                
+                            }
+                        }
+                    }
+                    &.active {
+                        color: $yellow;
+                    }
+                }
+            }
+            &::after {
+                content: '';
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 0;
+                height: 1px;
+                width: 97%;
+                background: $black-80;
+            }
+        }
+    }
+    @include sm {
+        &__top {
+            .container {
+                .menu__btn {
+                    display: block;
+                    position: relative;
+                    z-index: 1001;
+                    cursor: pointer;
+                    opacity: 1;
+                    @include size(22px,15px);
+                    span {
+                        width: 100%;
+                        height: 2px;
+                        background: $yellow; 
+                        @include mid(false);
+                    }
+                    &::before {
+                        content: "";
+                        width: 100%;
+                        height: 2px;
+                        background: $yellow;
+                        position: absolute;
+                        @include transition($t);
+                    }
+                    &::after {
+                        content: "";
+                        width: 100%;
+                        height: 2px;
+                        background: $yellow;
+                        position: absolute;
+                        bottom: 0;
+                        @include transition($t);
+                    }
+                    &.active {
+                        position: fixed;
+                        @include transition($t);
+                        span {
+                            opacity: 0;
+                        }
+                        &::before {
+                            top: 10px;
+                            transform: rotate(45deg);
+                            @include transition($t);
+                            background: $black-100;
+                        }
+                        &::after {
+                            top: 10px;
+                            transform: rotate(-45deg);
+                            @include transition($t);
+                            background: $black-100;
+                        }
+                    }
+                }
+            }
+        }
+        .header__menu {
+            display: none;
+        }
+    }
+    @include xs {
+        &__top {
+            .container {
+                padding: 0 10px;
+            }
+        }
+    }
+}

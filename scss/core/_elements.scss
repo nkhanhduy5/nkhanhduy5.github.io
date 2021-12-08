@@ -1,0 +1,126 @@
+.main__heading {
+    font-family: pb;
+    text-transform: uppercase;
+    &.--h1 {
+        display: inline-block;
+        font-size: var(--h1-fz);
+        line-height: normal;
+        letter-spacing: 0.6rem;
+        color: $grey;
+        margin-bottom:25px;
+        &.--studio {
+            @include text(3.2rem, peb, var(--h1-lh), $black-40, none);
+            letter-spacing: -0.08rem;
+        }
+    }
+    &.--h2 {
+        font-size: var(--h2-fz);
+        line-height: var(--h2-lh-odd1);
+        font-family: pnl;
+        letter-spacing: 0.24rem;
+        margin-bottom: 22px;
+        span {
+            display: block;
+        }
+        &.--studio {
+            @include text(var(--body12-fz), pnr, var(--body12-lh), $black-30, uppercase);
+            letter-spacing: 0.24rem;
+        }
+    }
+    &.--h3 {
+        font-size: var(--h3-fz);
+        line-height: var(--h3-lh);
+        color: $black-80;
+    }
+}
+.text-box {
+    @include text(var(--body11-fz), arial, var(--body11-lh), inherit, none);
+    letter-spacing: normal;
+    &:first-of-type {
+        margin-top: -15px;
+    }
+    &.--studio {
+        @include text(var(--h2-fz), pnr, var(--h2-lh), inherit, none);
+        &:first-of-type {
+            margin-top: -25px;
+        }
+    }
+}
+form input, form textarea {
+    border: none;
+    outline: none;
+    background: transparent;
+    border-bottom: 1px solid #000;
+    resize: none;
+    width: 100%;
+    line-height: normal;
+}
+button {
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.submit {
+    text-align: right;
+    button {
+        height: 20px;
+        background: $black-50;
+        @include text(var(--body10-fz), pb, normal, $white-00, uppercase);
+        cursor: pointer;
+        @include transition($t);
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}
+.display__opt {
+    @include mid;
+    .direct_btn {
+        @include mid;
+    }
+    &__item {
+        @include mid;
+        gap: 20px;
+        .arrow {
+            transform: rotate(90deg);
+        }
+    }
+}
+.details {
+    display: block;
+    line-height: 2rem;
+}
+.arrow {
+    @include size(15px,9px);
+    &.--reverse {
+        transform: rotate(-90deg);
+    }
+}
+.fullscreen, .download {
+    @include size(14px,14px);
+}
+.project__img {
+    @include size(100%,530px);
+    background: $yellow;
+    overflow: hidden;
+    margin-bottom: 34px;
+    position: relative;
+    a {
+        img {
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+            @include mid(false);
+        }
+    }
+}
+.show-more {
+    @include mid;
+    max-width: 100px;
+    margin: 0 auto;
+    flex-direction: column;
+    @include text(var(--body12-fz), pnsb, var(--body12-lh), $black-80, uppercase);
+    cursor: pointer;
+    gap: 7px;
+}
