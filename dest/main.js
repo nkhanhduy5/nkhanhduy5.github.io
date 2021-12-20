@@ -28,24 +28,10 @@ let scrollTop = function() {
         behavior: 'smooth'
     })
 }
-let toTopBtn = $('.back-to-top');
 let toTopSpan = $('footer .container .totop');
-toTopBtn.on('click',function() {
-    scrollTop();
-})
 toTopSpan.on('click',function(e) {
     e.preventDefault();
     scrollTop();
-})
-$(document).ready(function() {
-    $(window).on('scroll', function() {
-        let scrollY = window.pageYOffset;
-        if (scrollY > heightHeaderTop + 140) {
-            toTopBtn.addClass('active');
-        } else {
-            toTopBtn.removeClass('active');
-        }
-    })
 })
 
 //studio list
@@ -71,6 +57,6 @@ studioNumber.on('click',function() {
 
 //loading
 let loadingScreen = $('.loading')
-$(document).ready(function() {
-    loadingScreen.remove()
+$(window).on('load', function() {
+    loadingScreen.addClass('complete')
 })
